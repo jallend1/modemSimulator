@@ -3,14 +3,6 @@ const insertedText = document.querySelector("#insertedText");
 const speedSelector = document.querySelector("#speedSelector");
 let baudRate = 300;
 
-speedSelector.addEventListener("change", (e) => {
-  baudRate = e.target.value;
-  controller.abort();
-  controller = new AbortController();
-  displayText();
-  console.log(baudRate, convertModemSpeedtoDelay(baudRate));
-});
-
 const convertModemSpeedtoDelay = (speed) => {
   return 8 / speed;
 };
@@ -36,4 +28,13 @@ const displayText = async () => {
   }
 };
 
+const handleSpeedChange = (e) => {
+  baudRate = e.target.value;
+  controller.abort();
+  controller = new AbortController();
+  displayText();
+  console.log(baudRate, convertModemSpeedtoDelay(baudRate));
+};
+
 displayText();
+speedSelector.addEventListener("change", handleSpeedChange);
