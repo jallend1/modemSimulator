@@ -3,6 +3,8 @@ const insertedText = document.querySelector("#insertedText");
 const speedSelector = document.querySelector("#speedSelector");
 let baudRate = 300;
 
+// TODO: Gotta shift the framing here! Two variables to track, maybe? One for delay (for low baud rates), and one for higher baud rates where they render multiple characters each ms
+
 const convertModemSpeedtoDelay = (speed) => {
   return 8 / speed;
 };
@@ -36,5 +38,6 @@ const handleSpeedChange = (e) => {
   console.log(baudRate, convertModemSpeedtoDelay(baudRate));
 };
 
-displayText();
 speedSelector.addEventListener("change", handleSpeedChange);
+
+displayText();
