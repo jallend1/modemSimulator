@@ -1,3 +1,10 @@
+// Todo: Display the amount of time it will take it fully load at the given rate
+// Todo: Add a cancel button
+// Todo: Add a style sheet
+// TOdo: On refresh, the previous option from the drop-down is selected but the original speed is still used
+// Todo: Add a slider to change the speed?
+// TOdo: Implement error handling for the end of the file
+
 let controller = new AbortController();
 const insertedText = document.querySelector("#insertedText");
 const speedSelector = document.querySelector("#speedSelector");
