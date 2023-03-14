@@ -1,16 +1,15 @@
-// Todo: Display the amount of time it will take it fully load at the given rate
-// Todo: Add a slider to change the speed?
 // TOdo: Implement error handling for the end of the file
 
 let controller = new AbortController();
 const insertedText = document.querySelector("#inserted-text");
 const speedSelector = document.querySelector("#speed-selector");
 const headerButton = document.querySelector("#header-button");
+const speedInput = document.querySelector("#speed");
 let bitsPerSec = 300;
 
 // Resets form value on refresh
 window.onload = () => {
-  speedSelector.value = "300";
+  speedInput.value = "300";
 };
 
 const convertModemSpeedtoDelay = (speed) => {
@@ -47,12 +46,16 @@ const handleSpeedChange = (e) => {
   displayText();
 };
 
-const handleClick = () => {
-  controller.abort();
-  controller = new AbortController();
+const updateButtonText = () => {
   headerButton.textContent === "Cancel"
     ? (headerButton.textContent = "Restart")
     : (headerButton.textContent = "Cancel");
+};
+
+const handleClick = () => {
+  controller.abort();
+  controller = new AbortController();
+  updateButtonText();
   if (headerButton.textContent === "Cancel") {
     displayText();
   }
