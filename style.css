@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #dfd7c2;
+  font-family: "Space Mono", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: #e1532f;
+}
+
+main {
+  width: 80%;
+  margin: 1rem auto;
+  background-color: #000;
+  border-radius: 25px;
+  padding: 2rem;
+  color: #87d684;
+}
+
+p {
+  line-height: 1.5rem;
+}
