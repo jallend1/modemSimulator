@@ -1,14 +1,17 @@
 // Todo: Display the amount of time it will take it fully load at the given rate
-// Todo: Add a cancel button
-// Todo: Add a style sheet
-// TOdo: On refresh, the previous option from the drop-down is selected but the original speed is still used
 // Todo: Add a slider to change the speed?
 // TOdo: Implement error handling for the end of the file
 
 let controller = new AbortController();
-const insertedText = document.querySelector("#insertedText");
-const speedSelector = document.querySelector("#speedSelector");
+const insertedText = document.querySelector("#inserted-text");
+const speedSelector = document.querySelector("#speed-selector");
+const headerButton = document.querySelector("#header-button");
 let bitsPerSec = 300;
+
+// Resets form value on refresh
+window.onload = () => {
+  speedSelector.value = "300";
+};
 
 const convertModemSpeedtoDelay = (speed) => {
   // 8 bits per character
@@ -44,6 +47,17 @@ const handleSpeedChange = (e) => {
   displayText();
 };
 
-speedSelector.addEventListener("change", handleSpeedChange);
+const handleClick = () => {
+  controller.abort();
+  controller = new AbortController();
+  headerButton.textContent === "Cancel"
+    ? (headerButton.textContent = "Restart")
+    : (headerButton.textContent = "Cancel");
+  if (headerButton.textContent === "Cancel") {
+    displayText();
+  }
+};
 
+speedSelector.addEventListener("change", handleSpeedChange);
+headerButton.addEventListener("click", handleClick);
 displayText();

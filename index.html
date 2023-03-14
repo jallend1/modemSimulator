@@ -16,25 +16,28 @@
   <body>
     <header>
       <h1>Modem Simulator</h1>
-      <form id="speedSelector">
-        <label for="speed">Select speed:</label>
-        <select name="speed" id="speed">
-          <option value="300">300</option>
-          <option value="1200">1200</option>
-          <option value="2400">2400</option>
-          <option value="4800">4800</option>
-          <option value="9600">9600</option>
-          <option value="14400">14400</option>
-          <option value="19200">19200</option>
-          <option value="28800">28800</option>
-          <option value="38400">38400</option>
-          <option value="57600">57600</option>
-          <option value="115200">115200</option>
-        </select>
-      </form>
+      <div class="header-menu">
+        <form id="speed-selector">
+          <label for="speed">Select speed:</label>
+          <select name="speed" id="speed">
+            <option value="300" selected>300</option>
+            <option value="1200">1200</option>
+            <option value="2400">2400</option>
+            <option value="4800">4800</option>
+            <option value="9600">9600</option>
+            <option value="14400">14400</option>
+            <option value="19200">19200</option>
+            <option value="28800">28800</option>
+            <option value="38400">38400</option>
+            <option value="57600">57600</option>
+            <option value="115200">115200</option>
+          </select>
+        </form>
+        <button id="header-button">Cancel</button>
+      </div>
     </header>
     <main>
-      <p id="insertedText"></p>
+      <p id="inserted-text"></p>
     </main>
     <script src="sampleText.js"></script>
     <script src="script.js"></script>
